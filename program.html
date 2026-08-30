@@ -24,18 +24,45 @@
   /* Bildefelt: viser lysegrå flate til bildet er lastet opp i images/ */
   .oi-bilde { background:#E2DDD6; display:block; overflow:hidden; }
   .oi-bilde img { width:100%; height:100%; object-fit:cover; display:block; }
+  .oi-mobile-menu { display:none; }
+  .oi-mobile-menu summary { list-style:none; }
+  .oi-mobile-menu summary::-webkit-details-marker { display:none; }
   @media (max-width:860px){
     [data-m="shell"]{ padding-left:0 !important; }
     [data-m="rail"]{ display:none !important; }
     [data-m="stack"]{ display:block !important; }
     [data-m="stack"] > *{ grid-column:auto !important; border-left:none !important; border-right:none !important; }
     [data-m="pad"]{ padding-left:20px !important; padding-right:20px !important; }
-    [data-m="nav"]{ gap:14px !important; font-size:10px !important; flex-wrap:wrap; justify-content:flex-end; }
+    header[data-m="pad"]{ gap:18px !important; padding-top:14px !important; padding-bottom:14px !important; }
+    header[data-m="pad"] > a{ flex:0 0 auto; }
+    [data-m="nav"]{ display:none !important; }
+    .oi-mobile-menu{ display:block; margin-left:auto; }
+    .oi-mobile-menu summary{ display:flex; align-items:center; gap:10px; border:1px solid rgba(38,35,31,.22); padding:10px 12px; cursor:pointer; font-size:10px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; user-select:none; }
+    .oi-menu-icon{ width:18px; display:flex; flex-direction:column; gap:5px; }
+    .oi-menu-icon span{ display:block; height:1px; background:#26231F; transition:transform .2s ease; }
+    .oi-mobile-menu[open] .oi-menu-icon span:first-child{ transform:translateY(3px) rotate(45deg); }
+    .oi-mobile-menu[open] .oi-menu-icon span:last-child{ transform:translateY(-3px) rotate(-45deg); }
+    .oi-mobile-menu-panel{ position:absolute; top:100%; left:0; right:0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1px; padding:18px 20px 22px; background:#26231F; border-top:1px solid #B08D4F; box-shadow:0 18px 34px rgba(38,35,31,.18); }
+    .oi-mobile-menu-panel a{ display:flex; align-items:baseline; gap:10px; padding:16px 10px; color:#F4F2EE; border-bottom:1px solid rgba(215,182,120,.24); font-size:13px; letter-spacing:.04em; }
+    .oi-mobile-menu-panel a:hover, .oi-mobile-menu-panel a[aria-current="page"]{ color:#E9333A; }
+    .oi-mobile-menu-panel a span{ color:#D7B678; font-size:9px; letter-spacing:.18em; }
     [data-m="hide"]{ display:none !important; }
     [data-mp]{ padding-left:20px !important; padding-right:20px !important; }
     [data-mn]{ padding-left:0 !important; padding-right:0 !important; margin-top:28px; }
     [data-ms]{ display:block !important; }
     [data-ms] > *{ grid-column:auto !important; }
+    .oi-program-list > [data-m="stack"] > :first-child{ gap:0 !important; padding-right:0 !important; }
+    .oi-program-list > [data-m="stack"] > :first-child > :last-child{ display:none !important; }
+    .oi-program-list > [data-m="stack"] > :nth-child(2){ flex-direction:row !important; align-items:baseline !important; flex-wrap:wrap !important; gap:4px 10px !important; padding-right:0 !important; margin-top:8px; }
+    .oi-program-list > [data-m="stack"] > :nth-child(2) > :first-child{ font-size:26px !important; }
+    .oi-program-list > [data-m="stack"] > :nth-child(3){ padding-right:0 !important; margin-top:18px; }
+    .oi-program-list > [data-m="stack"] > :nth-child(4){ display:block !important; margin-top:24px; }
+    .oi-program-list > [data-m="stack"] > :nth-child(4) .oi-bilde{ height:clamp(190px, 62vw, 270px) !important; }
+    .oi-footer-claim{ margin-bottom:44px !important; padding-top:10px; line-height:1.08 !important; }
+  }
+  @media (max-width:380px){
+    header[data-m="pad"]{ gap:14px !important; }
+    .oi-mobile-menu summary{ padding:9px 10px; }
   }
 </style>
 </head>
@@ -61,13 +88,22 @@
       <a href="bli-orkestervenn.html">Bli orkestervenn</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
+    <details class="oi-mobile-menu">
+      <summary><span>Meny</span><span class="oi-menu-icon" aria-hidden="true"><span></span><span></span></span></summary>
+      <nav class="oi-mobile-menu-panel" aria-label="Mobilmeny">
+        <a href="program.html" aria-current="page"><span>01</span>Program</a>
+        <a href="om-oss.html"><span>02</span>Om oss</a>
+        <a href="bli-orkestervenn.html"><span>03</span>Orkestervenn</a>
+        <a href="#kontakt"><span>04</span>Kontakt</a>
+      </nav>
+    </details>
   </header>
 
   <section data-reveal="" data-m="pad" style="padding:0 56px 56px 40px;">
     <div data-m="stack" style="display:grid; grid-template-columns:repeat(12, 1fr); gap:0; padding:64px 0 0;">
       <div style="grid-column:1 / 8;">
         <div style="display:flex; align-items:center; gap:16px; margin-bottom:36px;">
-          <span style="font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:#6E675F; font-weight:600;">Arkiv</span>
+          <span style="font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:#6E675F; font-weight:600;">Jubileum</span>
           <div data-staff="" style="flex:1; height:1px; background:rgba(38,35,31,.22);"></div>
           <span style="font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:#E9333A; font-weight:600;">1991–2026</span>
         </div>
@@ -84,7 +120,7 @@
     </div>
   </section>
 
-  <section data-m="pad" style="padding:0 56px 88px 40px;">
+  <section class="oi-program-list" data-m="pad" style="padding:0 56px 88px 40px;">
 
     <!-- ===== KONSERT 1 — ÅRSTALL: 2026 · BILDE: images/07.webp ===== -->
     <div data-m="stack" style="display:grid; grid-template-columns:repeat(12, 1fr); align-items:start; padding:34px 0; border-top:1px solid rgba(38,35,31,.22); column-gap:0;">
@@ -257,7 +293,7 @@
 
   <footer id="kontakt" data-m="pad" style="background:#26231F; color:#F4F2EE; border-top:1px solid rgba(215,182,120,.35); padding:64px 56px 40px 40px;">
     <div data-m="stack" style="display:grid; grid-template-columns:repeat(12, 1fr); gap:0; align-items:end; padding-bottom:48px;">
-      <p style="grid-column:1 / 8; margin:0; font-weight:200; font-size:clamp(28px, 4.4vw, 70px); line-height:.98; letter-spacing:-.045em;">Vi spiller der <span style="color:#D7B678;">folk bor</span></p>
+      <p class="oi-footer-claim" style="grid-column:1 / 8; margin:0; font-weight:200; font-size:clamp(28px, 4.4vw, 70px); line-height:.98; letter-spacing:-.045em;">Vi spiller der <span style="color:#D7B678;">folk bor</span></p>
       <div style="grid-column:9 / 13; display:flex; flex-direction:column; gap:12px; font-size:15px;">
         <a href="program.html" class="oi-link-gull" style="color:#F4F2EE;">Program</a>
         <a href="om-oss.html" class="oi-link-gull" style="color:#F4F2EE;">Om oss</a>
@@ -275,6 +311,8 @@
 
 <script>
   (function () {
+    var menu = document.querySelector('.oi-mobile-menu');
+    if (menu) menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', function () { menu.removeAttribute('open'); }); });
     var bar = document.getElementById('oi-progress');
     if (!bar) return;
     function upd() {
