@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bli orkestervenn — Orkester Innlandet</title>
+<title>Orkester Innlandet — Jubileumssesong 2026</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700&amp;display=swap">
 <style>
@@ -12,35 +12,67 @@
   a { color:#26231F; text-decoration:none; }
   a:hover { color:#E9333A; }
   ::selection { background:#E9333A; color:#F4F2EE; }
+  @keyframes oi-marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
   @keyframes oi-rise { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
   @keyframes oi-draw { from { transform:scaleX(0); } to { transform:scaleX(1); } }
   [data-reveal] { animation:oi-rise .9s cubic-bezier(.16,.8,.2,1) both; }
   [data-staff] { transform-origin:left; animation:oi-draw 1.4s cubic-bezier(.16,.8,.2,1) both; }
   a:focus-visible, input:focus-visible, button:focus-visible { outline:2px solid #E9333A; outline-offset:3px; }
-  input { font-family:Archivo, sans-serif; }
   .oi-link-gull:hover { color:#D7B678 !important; }
   .oi-link-rod:hover { color:#E9333A !important; border-color:#E9333A !important; }
   .oi-knapp:hover { background:#26231F !important; }
   /* Bildefelt: viser lysegrå flate til bildet er lastet opp i images/ */
   .oi-bilde { background:#E2DDD6; display:block; overflow:hidden; }
   .oi-bilde img { width:100%; height:100%; object-fit:cover; display:block; }
+  .oi-bilde img.contain { object-fit:contain; }
+  .oi-mobile-menu { display:none; }
+  .oi-mobile-menu summary { list-style:none; }
+  .oi-mobile-menu summary::-webkit-details-marker { display:none; }
   @media (max-width:860px){
     [data-m="shell"]{ padding-left:0 !important; }
     [data-m="rail"]{ display:none !important; }
     [data-m="stack"]{ display:block !important; }
     [data-m="stack"] > *{ grid-column:auto !important; border-left:none !important; border-right:none !important; }
-    [data-m="pad"]{ padding-left:20px !important; padding-right:20px !important; }
-    [data-m="nav"]{ gap:14px !important; font-size:10px !important; flex-wrap:wrap; justify-content:flex-end; }
-    [data-m="hide"]{ display:none !important; }
+    [data-m="stack"] > [data-m="pad"]{ padding-left:20px !important; padding-right:20px !important; }
     [data-mp]{ padding-left:20px !important; padding-right:20px !important; }
-    [data-mn]{ padding-left:0 !important; padding-right:0 !important; margin-top:28px; }
+    [data-mn]{ padding-left:0 !important; padding-right:0 !important; }
     [data-ms]{ display:block !important; }
     [data-ms] > *{ grid-column:auto !important; }
+    [data-m="imgcap"]{ min-height:0 !important; }
+    [data-m="imgcap"] img{ max-height:360px !important; min-height:0 !important; object-fit:cover; }
+    [data-m="pad"]{ padding-left:20px !important; padding-right:20px !important; }
+    header[data-m="pad"]{ gap:18px !important; padding-top:14px !important; padding-bottom:14px !important; }
+    header[data-m="pad"] > a{ flex:0 0 auto; }
+    [data-m="nav"]{ display:none !important; }
+    .oi-mobile-menu{ display:block; margin-left:auto; }
+    .oi-mobile-menu summary{ display:flex; align-items:center; gap:10px; border:1px solid rgba(38,35,31,.22); padding:10px 12px; cursor:pointer; font-size:10px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; user-select:none; }
+    .oi-menu-icon{ width:18px; display:flex; flex-direction:column; gap:5px; }
+    .oi-menu-icon span{ display:block; height:1px; background:#26231F; transition:transform .2s ease; }
+    .oi-mobile-menu[open] .oi-menu-icon span:first-child{ transform:translateY(3px) rotate(45deg); }
+    .oi-mobile-menu[open] .oi-menu-icon span:last-child{ transform:translateY(-3px) rotate(-45deg); }
+    .oi-mobile-menu-panel{ position:absolute; top:100%; left:0; right:0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1px; padding:18px 20px 22px; background:#26231F; border-top:1px solid #B08D4F; box-shadow:0 18px 34px rgba(38,35,31,.18); }
+    .oi-mobile-menu-panel a{ display:flex; align-items:baseline; gap:10px; padding:16px 10px; color:#F4F2EE; border-bottom:1px solid rgba(215,182,120,.24); font-size:13px; letter-spacing:.04em; }
+    .oi-mobile-menu-panel a:hover, .oi-mobile-menu-panel a[aria-current="page"]{ color:#E9333A; }
+    .oi-mobile-menu-panel a span{ color:#D7B678; font-size:9px; letter-spacing:.18em; }
+    [data-m="grid2"]{ grid-template-columns:repeat(2, 1fr) !important; }
+    [data-m="hide"]{ display:none !important; }
+    [data-m="concert-year"]{ gap:0 !important; padding-right:0 !important; }
+    [data-m="concert-marker"]{ display:none !important; }
+    [data-m="concert-date"]{ flex-direction:row !important; align-items:baseline !important; flex-wrap:wrap !important; gap:4px 10px !important; padding-right:0 !important; margin-top:8px; }
+    [data-m="concert-date"] > :first-child{ font-size:30px !important; }
+    [data-m="concert-info"]{ padding-right:0 !important; margin-top:18px; }
+    [data-m="concert-image"]{ display:block !important; margin-top:24px; }
+    [data-m="concert-image"] .oi-bilde{ height:clamp(190px, 62vw, 270px) !important; }
+    .oi-footer-claim{ margin-bottom:44px !important; padding-top:10px; line-height:1.08 !important; }
+  }
+  @media (max-width:380px){
+    header[data-m="pad"]{ gap:14px !important; }
+    .oi-mobile-menu summary{ padding:9px 10px; }
   }
 </style>
 </head>
 <body>
-<div data-m="shell" style="background:#F4F2EE; color:#26231F; font-family:Archivo, sans-serif; font-weight:400; overflow-x:hidden; min-height:100vh; -webkit-font-smoothing:antialiased; padding-left:58px;">
+<div style="background:#F4F2EE; color:#26231F; font-family:Archivo, sans-serif; font-weight:400; overflow-x:hidden; min-height:100vh; -webkit-font-smoothing:antialiased; padding-left:58px;" data-m="shell">
 
   <div data-m="rail" style="position:fixed; left:-1px; top:0; width:59px; border-right:1px solid rgba(38,35,31,.16); background:#F4F2EE; z-index:30; display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:22px 0 26px; height:100vh; overflow:hidden;">
     <span style="width:9px; height:9px; background:#E9333A; border-radius:50%; flex:none; margin-bottom:38px;"></span>
@@ -48,7 +80,7 @@
     <div style="width:1px; flex:1; min-height:40px; margin:26px 0; background:rgba(38,35,31,.16); position:relative;">
       <div id="oi-progress" style="position:absolute; left:-1px; top:0; width:3px; background:#B08D4F; height:0%;"></div>
     </div>
-    <span style="writing-mode:vertical-rl; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:#8A6A2E; font-weight:600; flex:none;">Orkestervenn</span>
+    <span style="writing-mode:vertical-rl; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:#8A6A2E; font-weight:600; flex:none;">Jubileum</span>
   </div>
 
   <header data-m="pad" style="display:flex; align-items:center; justify-content:space-between; gap:32px; padding:20px 56px 20px 40px; border-bottom:1px solid rgba(38,35,31,.16); position:sticky; top:0; background:rgba(244,242,238,.94); backdrop-filter:blur(10px); z-index:20;">
@@ -58,117 +90,263 @@
     <nav data-m="nav" style="display:flex; gap:38px; font-size:13px; font-weight:500; letter-spacing:.06em; text-transform:uppercase;">
       <a href="program.html">Program</a>
       <a href="om-oss.html">Om oss</a>
-      <a href="bli-orkestervenn.html" style="color:#E9333A;">Bli orkestervenn</a>
+      <a href="bli-orkestervenn.html">Bli orkestervenn</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
+    <details class="oi-mobile-menu">
+      <summary><span>Meny</span><span class="oi-menu-icon" aria-hidden="true"><span></span><span></span></span></summary>
+      <nav class="oi-mobile-menu-panel" aria-label="Mobilmeny">
+        <a href="program.html"><span>01</span>Program</a>
+        <a href="om-oss.html"><span>02</span>Om oss</a>
+        <a href="bli-orkestervenn.html"><span>03</span>Orkestervenn</a>
+        <a href="#kontakt"><span>04</span>Kontakt</a>
+      </nav>
+    </details>
   </header>
 
-  <section data-reveal="" data-m="pad" style="padding:0 56px 64px 40px;">
+  <!-- ===== TOPPSEKSJON ===== -->
+  <section data-reveal="" data-m="pad" style="padding:0 56px 0 40px; position:relative;">
     <div data-m="stack" style="display:grid; grid-template-columns:repeat(12, 1fr); gap:0; padding:64px 0 0;">
       <div style="grid-column:1 / 8;">
         <div style="display:flex; align-items:center; gap:16px; margin-bottom:36px;">
-          <span style="font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:#6E675F; font-weight:600;">Orkestervenner</span>
+          <span style="font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:#6E675F; font-weight:600;">Sesong 2026</span>
           <div data-staff="" style="flex:1; height:1px; background:rgba(38,35,31,.22);"></div>
-          <span style="font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:#E9333A; font-weight:600;">Sesong 2026</span>
+          <span style="font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:#E9333A; font-weight:600;">Jubileum</span>
         </div>
-        <h1 style="margin:0; font-weight:200; font-size:clamp(46px, 7vw, 122px); line-height:.94; letter-spacing:-.045em;">
-          <span style="display:block;">Bli med</span>
-          <span style="display:block; padding-left:.12em; font-weight:400;">i felles-</span>
-          <span style="display:block; padding-left:.26em; color:#6E675F;">skapet</span>
+        <h1 style="margin:0; font-weight:200; font-size:clamp(46px, 7.4vw, 132px); line-height:.94; letter-spacing:-.045em;">
+          <span style="display:block;">Levende</span>
+          <span style="display:block; padding-left:.1em; font-weight:400;">orkester,</span>
+          <span style="display:block; padding-left:.22em; color:#6E675F;">tett på</span>
+          <span style="display:block; padding-left:.34em; font-weight:400;">publikum</span>
         </h1>
       </div>
       <div data-mn="1" style="grid-column:9 / 13; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:14px; border-left:1px solid rgba(38,35,31,.16); padding-left:32px; margin-top:32px;">
         <div data-m="hide" style="height:53px; background:repeating-linear-gradient(to bottom, rgba(38,35,31,.2) 0 1px, transparent 1px 13px); margin-bottom:28px;"></div>
-        <p style="margin:0; font-size:17px; line-height:1.75; color:#3B3733;">Alle er velkomne. Du bestemmer selv hvor mye du bidrar.</p>
-        <a href="#skjema" class="oi-link-rod" style="display:inline-block; margin-top:28px; align-self:start; border-bottom:1px solid #26231F; padding-bottom:5px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600;">Meld deg på →</a>
+        <p style="margin:0; font-size:17px; line-height:1.75; color:#3B3733;">Profesjonelt strykerensemble som spiller der folk bor — i hele Innlandet.</p>
+        <a href="#program" class="oi-link-rod" style="display:inline-block; margin-top:28px; align-self:start; border-bottom:1px solid #26231F; padding-bottom:5px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600;">Se programmet →</a>
       </div>
     </div>
+    <div style="height:52px;"></div>
   </section>
 
-  <section data-reveal="" data-m="stack" style="display:grid; grid-template-columns:repeat(3, 1fr); border-top:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#EDEAE4;">
-    <div data-mp="1" style="padding:48px 40px; border-right:1px solid rgba(38,35,31,.16);">
-      <p style="margin:0 0 20px; font-size:11px; letter-spacing:.22em; color:#8A6A2E; font-weight:600;">01</p>
-      <p style="margin:0; font-weight:300; font-size:26px; line-height:1.2; letter-spacing:-.025em; max-width:18ch;">Rabatterte billetter</p>
-      <p style="margin:16px 0 0; font-size:16px; line-height:1.7; color:#5E5851; max-width:30ch;">Lavere pris på konsertene gjennom hele sesongen.</p>
-    </div>
-    <div data-mp="1" style="padding:48px 40px; border-right:1px solid rgba(38,35,31,.16);">
-      <p style="margin:0 0 20px; font-size:11px; letter-spacing:.22em; color:#8A6A2E; font-weight:600;">02</p>
-      <p style="margin:0; font-weight:300; font-size:26px; line-height:1.2; letter-spacing:-.025em; max-width:18ch;">Del av fellesskapet</p>
-      <p style="margin:16px 0 0; font-size:16px; line-height:1.7; color:#5E5851; max-width:30ch;">Invitasjoner til det som skjer rundt orkesteret.</p>
-    </div>
-    <div data-mp="1" style="padding:48px 40px; border-right:1px solid rgba(38,35,31,.16);">
-      <p style="margin:0 0 20px; font-size:11px; letter-spacing:.22em; color:#8A6A2E; font-weight:600;">03</p>
-      <p style="margin:0; font-weight:300; font-size:26px; line-height:1.2; letter-spacing:-.025em; max-width:18ch;">Bidra praktisk</p>
-      <p style="margin:16px 0 0; font-size:16px; line-height:1.7; color:#5E5851; max-width:30ch;">Hjelp til rundt konsertene — helt frivillig.</p>
-    </div>
-  </section>
+  <!-- ===== TOPPBILDE: images/orkester-hero.jpg ===== -->
+  <div class="oi-bilde" style="height:clamp(400px, 46vw, 700px); border-top:1px solid rgba(38,35,31,.22); border-bottom:1px solid #B08D4F;">
+    <img src="images/orkester-hero.jpg" alt="Musikerne i Orkester Innlandet" style="object-position:center 82%;">
+  </div>
 
-  <section id="skjema" data-reveal="" data-m="pad" data-ms="1" style="padding:84px 56px 88px 40px; display:grid; grid-template-columns:repeat(12, 1fr);">
-    <div data-mn="1" style="grid-column:1 / 7; padding-right:56px;">
-      <h2 style="margin:0; font-weight:200; font-size:clamp(30px, 3.8vw, 52px); line-height:1.04; letter-spacing:-.04em; max-width:16ch;">Hva det innebærer</h2>
-      <p style="margin:26px 0 0; font-size:17px; line-height:1.75; color:#3B3733; max-width:52ch;">Som orkestervenn støtter du et profesjonelt orkester som spiller der folk bor. Du får rabatt på billetter, invitasjoner til det som skjer rundt konsertene, og mulighet til å bidra praktisk om du ønsker det.</p>
-      <p style="margin:20px 0 0; font-size:17px; line-height:1.75; color:#3B3733; max-width:52ch;">Meld deg på i skjemaet, så tar vi kontakt med det praktiske.</p>
-      <div style="margin-top:40px; height:53px; background:repeating-linear-gradient(to bottom, rgba(38,35,31,.2) 0 1px, transparent 1px 13px);"></div>
-      <div style="margin-top:40px; border-top:1px solid rgba(38,35,31,.22); padding-top:24px; display:flex; gap:48px; flex-wrap:wrap;">
-        <div>
-          <p style="margin:0; font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#6E675F; font-weight:600;">Spørsmål</p>
-          <p style="margin:10px 0 0; font-size:16px; line-height:1.7;">Elisabeth Lie, Daglig leder<br>Tel: +47 930 11 404<br><a href="mailto:elisabeth.lie@orkesterinnlandet.no">elisabeth.lie@orkesterinnlandet.no</a></p>
-        </div>
-        <div>
-          <p style="margin:0; font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#6E675F; font-weight:600;">Sted</p>
-          <p style="margin:10px 0 0; font-size:16px;">Gjøvik / Innlandet</p>
+  <!-- ===== 35 ÅR ===== -->
+  <section style="background:#26231F; color:#F4F2EE; overflow:hidden;">
+    <div data-m="stack" data-mp="1" style="display:grid; grid-template-columns:repeat(12, 1fr); align-items:center; padding:38px 56px 34px 40px; gap:0;">
+      <div style="grid-column:1 / 6; display:flex; align-items:flex-start; gap:14px;">
+        <p style="margin:0; font-weight:200; font-size:clamp(62px, 8.6vw, 132px); line-height:.82; letter-spacing:-.06em; color:#D7B678;">35</p>
+        <div style="padding-top:.4em;">
+          <p style="margin:0; font-size:12px; letter-spacing:.24em; text-transform:uppercase; font-weight:600; color:#F4F2EE;">år</p>
+          <p style="margin:8px 0 0; font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:rgba(215,182,120,.75); font-weight:600;">1991–2026</p>
         </div>
       </div>
-    </div>
-
-    <div data-mn="1" style="grid-column:7 / 13; background:#EDEAE4; border-left:1px solid rgba(38,35,31,.16); padding:48px 44px;">
-      <h3 style="margin:0 0 32px; font-weight:300; font-size:30px; line-height:1.15; letter-spacing:-.025em;">Meld deg på</h3>
-      <div style="display:flex; flex-direction:column; gap:24px;">
-        <label style="display:flex; flex-direction:column; gap:9px;">
-          <span style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#6E675F; font-weight:600;">Navn</span>
-          <input type="text" placeholder="For- og etternavn" style="border:none; border-bottom:1px solid rgba(38,35,31,.32); background:transparent; padding:10px 0; font-size:17px; color:#26231F; outline:none;">
-        </label>
-        <label style="display:flex; flex-direction:column; gap:9px;">
-          <span style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#6E675F; font-weight:600;">E-post</span>
-          <input type="email" placeholder="navn@epost.no" style="border:none; border-bottom:1px solid rgba(38,35,31,.32); background:transparent; padding:10px 0; font-size:17px; color:#26231F; outline:none;">
-        </label>
-        <label style="display:flex; flex-direction:column; gap:9px;">
-          <span style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#6E675F; font-weight:600;">Telefon</span>
-          <input type="tel" placeholder="Valgfritt" style="border:none; border-bottom:1px solid rgba(38,35,31,.32); background:transparent; padding:10px 0; font-size:17px; color:#26231F; outline:none;">
-        </label>
-        <button type="button" class="oi-knapp" style="margin-top:14px; background:#E9333A; color:#FFFFFF; border:none; padding:16px 26px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; cursor:pointer; text-align:left;">Send påmelding →</button>
-        <p style="margin:0; font-size:13px; line-height:1.65; color:#6E675F;">Vi bruker opplysningene bare til å kontakte deg om orkestervennskapet.</p>
+      <div data-m="hide" style="grid-column:6 / 9; padding-right:28px;">
+        <div style="height:53px; background:repeating-linear-gradient(to bottom, rgba(215,182,120,.35) 0 1px, transparent 1px 13px);"></div>
+      </div>
+      <div data-mn="1" style="grid-column:9 / 13; border-left:1px solid rgba(215,182,120,.4); padding-left:32px; margin-top:22px;">
+        <p style="margin:0; font-weight:300; font-size:clamp(20px, 2.1vw, 30px); line-height:1.15; letter-spacing:-.025em;">Jubileumssesong 2026</p>
+        <p style="margin:12px 0 0; font-size:14px; line-height:1.65; color:rgba(244,242,238,.66);">To konserter markerer 35 års virke — fra Gjøvik Sinfonietta til Orkester Innlandet.</p>
       </div>
     </div>
   </section>
 
-  <section data-m="pad" style="background:#26231F; color:#F4F2EE; padding:56px 56px 56px 40px; border-top:1px solid #B08D4F; display:flex; align-items:end; justify-content:space-between; gap:40px; flex-wrap:wrap;">
-    <p style="margin:0; font-weight:200; font-size:clamp(28px, 3.6vw, 50px); line-height:1.04; letter-spacing:-.04em; max-width:24ch;"><span style="color:#D7B678;">35 år</span> med orkester i Innlandet</p>
-    <a href="program.html" class="oi-link-gull" style="display:inline-block; color:#D7B678; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; border-bottom:1px solid rgba(215,182,120,.45); padding-bottom:4px;">Se jubileumsprogrammet →</a>
+  <!-- ===== RULLEBANNER: endre begge kopiene likt ===== -->
+  <div style="display:flex; align-items:stretch; background:#D7B678; border-bottom:1px solid rgba(38,35,31,.22);">
+    <span data-m="pad" style="flex:none; background:#26231F; color:#D7B678; font-size:10px; letter-spacing:.26em; text-transform:uppercase; font-weight:600; padding:15px 24px 15px 40px; display:flex; align-items:center; white-space:nowrap;">Neste konserter</span>
+    <div style="flex:1; overflow:hidden; display:flex; align-items:center;">
+      <div style="display:flex; width:max-content; animation:oi-marquee 52s linear infinite;">
+        <div style="display:flex; gap:38px; padding-left:26px; padding-right:38px; font-size:10px; letter-spacing:.26em; text-transform:uppercase; font-weight:600; color:#26231F; white-space:nowrap;">
+          <span>23. september · Rudi gard</span><span style="color:rgba(38,35,31,.4);">/</span><span>24. september · Byscena Gjøvik</span><span style="color:rgba(38,35,31,.4);">/</span>
+        </div>
+        <div style="display:flex; gap:38px; padding-right:38px; font-size:10px; letter-spacing:.26em; text-transform:uppercase; font-weight:600; color:#26231F; white-space:nowrap;" aria-hidden="true">
+          <span>23. september · Rudi gard</span><span style="color:rgba(38,35,31,.4);">/</span><span>24. september · Byscena Gjøvik</span><span style="color:rgba(38,35,31,.4);">/</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== KOMMENDE KONSERTER ===== -->
+  <section id="program" data-reveal="" data-m="pad" style="padding:84px 56px 88px 40px;">
+    <div data-m="stack" style="display:grid; grid-template-columns:repeat(12, 1fr); align-items:baseline; margin-bottom:40px;">
+      <h2 style="grid-column:1 / 6; margin:0; font-weight:200; font-size:clamp(32px, 4.2vw, 62px); letter-spacing:-.04em;">Neste konserter</h2>
+      <div data-m="hide" style="grid-column:6 / 11; height:1px; background:rgba(38,35,31,.22); margin-bottom:.5em;"></div>
+      <a href="program.html" class="oi-link-rod" data-m="hide" style="grid-column:11 / 13; text-align:right; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; color:#6E675F;">Alle konserter →</a>
+    </div>
+
+    <!-- KONSERT 1 — 23. september -->
+    <div data-m="stack" style="display:grid; grid-template-columns:repeat(12, 1fr); align-items:start; padding:34px 0; border-top:1px solid rgba(38,35,31,.22); color:#26231F; column-gap:0;">
+      <span data-m="concert-year" style="grid-column:1 / 2; display:flex; flex-direction:column; gap:14px; align-items:flex-start; padding-right:14px;">
+        <span style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; color:#8A6A2E;">2026</span>
+        <span data-m="concert-marker" style="display:flex; align-items:flex-start; gap:7px;">
+          <span style="width:26px; height:53px; background:repeating-linear-gradient(to bottom, rgba(38,35,31,.28) 0 1px, transparent 1px 13px); flex:none;"></span>
+          <span style="width:7px; height:7px; border-radius:50%; background:#E9333A; margin-top:23px; flex:none;"></span>
+        </span>
+      </span>
+      <span data-m="concert-date" style="grid-column:2 / 4; display:flex; flex-direction:column; gap:6px; padding-right:24px;">
+        <span style="font-weight:300; font-size:26px; line-height:1; letter-spacing:-.03em;">23</span>
+        <span style="font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:#6E675F; font-weight:600;">september</span>
+        <span style="font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:#8A6A2E; font-weight:600;">Kl 19.00</span>
+      </span>
+      <span data-m="concert-info" style="grid-column:4 / 10; display:flex; flex-direction:column; gap:12px; padding-right:44px;">
+        <span style="font-weight:400; font-size:clamp(19px, 2vw, 28px); line-height:1.2; letter-spacing:-.02em;">Orkester Innlandet &amp; Trygve Seim</span>
+        <span style="font-size:14px; color:#6E675F; line-height:1.6;">Onsdag 23. september kl 19.00, Rudi gard</span>
+        <span style="font-size:16px; color:#3B3733; line-height:1.7; max-width:58ch;">Orkester Innlandet feirer 35 år i musikkens tjeneste! Med vår kunstneriske leder Atle Sponberg i spissen for 16 strykere, inviterer vi til en konsert hvor du både får servert kjente og kjære klassiske perler og innslag hvor vi utfordrer det tradisjonelle. Vi byr på favoritter fra vårt brede sjangermessige repertoar. Bli med på en kveld fylt med musikalske overraskelser og stor stemning.</span>
+        <span style="display:flex; flex-direction:column; gap:4px; margin-top:2px;">
+          <span style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#6E675F; font-weight:600;">Gjest</span>
+          <span style="font-size:16px; color:#26231F;">Trygve Seim, saksofon og Bjørn Kåre Odde, fele</span>
+        </span>
+        <a href="#" class="oi-knapp" style="align-self:start; margin-top:10px; display:inline-block; background:#E9333A; color:#FFFFFF; padding:13px 22px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600;">Kjøp billetter →</a>
+      </span>
+      <span data-m="concert-image" style="grid-column:10 / 13;">
+        <!-- BILDE: images/konsert-rudi.jpg -->
+        <div class="oi-bilde" style="width:100%; height:210px;"><img src="images/konsert-rudi.png" alt="Bilde fra konserten"></div>
+      </span>
+    </div>
+
+    <!-- KONSERT 2 — 24. september -->
+    <div data-m="stack" style="display:grid; grid-template-columns:repeat(12, 1fr); align-items:start; padding:34px 0; border-top:1px solid rgba(38,35,31,.22); color:#26231F; column-gap:0;">
+      <span data-m="concert-year" style="grid-column:1 / 2; display:flex; flex-direction:column; gap:14px; align-items:flex-start; padding-right:14px;">
+        <span style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; color:#8A6A2E;">2026</span>
+        <span data-m="concert-marker" style="display:flex; align-items:flex-start; gap:7px;">
+          <span style="width:26px; height:53px; background:repeating-linear-gradient(to bottom, rgba(38,35,31,.28) 0 1px, transparent 1px 13px); flex:none;"></span>
+          <span style="width:7px; height:7px; border-radius:50%; background:#B08D4F; margin-top:23px; flex:none;"></span>
+        </span>
+      </span>
+      <span data-m="concert-date" style="grid-column:2 / 4; display:flex; flex-direction:column; gap:6px; padding-right:24px;">
+        <span style="font-weight:300; font-size:26px; line-height:1; letter-spacing:-.03em;">24</span>
+        <span style="font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:#6E675F; font-weight:600;">september</span>
+        <span style="font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:#8A6A2E; font-weight:600;">Kl 19.00</span>
+      </span>
+      <span data-m="concert-info" style="grid-column:4 / 10; display:flex; flex-direction:column; gap:12px; padding-right:44px;">
+        <span style="font-weight:400; font-size:clamp(19px, 2vw, 28px); line-height:1.2; letter-spacing:-.02em;">Orkester Innlandet &amp; Trygve Seim</span>
+        <span style="font-size:14px; color:#6E675F; line-height:1.6;">Torsdag 24. september kl 19.00, Byscena Bedehuset, Gjøvik</span>
+        <span style="font-size:16px; color:#3B3733; line-height:1.7; max-width:58ch;">Orkester Innlandet feirer 35 år i musikkens tjeneste! Med vår kunstneriske leder Atle Sponberg i spissen for 16 strykere, inviterer vi til en konsert hvor du både får servert kjente og kjære klassiske perler og innslag hvor vi utfordrer det tradisjonelle. Vi byr på favoritter fra vårt brede sjangermessige repertoar. Bli med på en kveld fylt med musikalske overraskelser og stor stemning.</span>
+        <span style="display:flex; flex-direction:column; gap:4px; margin-top:2px;">
+          <span style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#6E675F; font-weight:600;">Gjest</span>
+          <span style="font-size:16px; color:#26231F;">Trygve Seim, saksofon</span>
+        </span>
+        <a href="#" class="oi-knapp" style="align-self:start; margin-top:10px; display:inline-block; background:#E9333A; color:#FFFFFF; padding:13px 22px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600;">Kjøp billetter →</a>
+      </span>
+      <span data-m="concert-image" style="grid-column:10 / 13;">
+        <!-- BILDE: images/konsert-byscena.jpg -->
+        <div class="oi-bilde" style="width:100%; height:210px;"><img src="images/konsert-byscena.png" alt="Bilde fra konserten"></div>
+      </span>
+    </div>
+
+    <div style="border-top:1px solid rgba(38,35,31,.22);"></div>
   </section>
 
-  <footer id="kontakt" data-m="pad" style="background:#26231F; color:#F4F2EE; border-top:1px solid rgba(215,182,120,.35); padding:64px 56px 40px 40px;">
-    <div data-m="stack" style="display:grid; grid-template-columns:repeat(12, 1fr); gap:0; align-items:end; padding-bottom:48px;">
-      <p style="grid-column:1 / 8; margin:0; font-weight:200; font-size:clamp(28px, 4.4vw, 70px); line-height:.98; letter-spacing:-.045em;">Vi spiller der <span style="color:#D7B678;">folk bor</span></p>
+  <!-- ===== OM OSS ===== -->
+  <section id="om" data-reveal="" data-m="stack" style="background:#EDEAE4; border-top:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); display:grid; grid-template-columns:repeat(12, 1fr);">
+    <div data-mp="1" style="grid-column:1 / 5; padding:64px 36px 64px 40px; border-right:1px solid rgba(38,35,31,.16); display:flex; flex-direction:column; justify-content:space-between; gap:36px;">
+      <div>
+        <p style="margin:0 0 22px; font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:#6E675F; font-weight:600;">Om oss</p>
+        <p style="margin:0; font-weight:300; font-size:clamp(22px, 2.3vw, 32px); line-height:1.28; letter-spacing:-.025em; max-width:26ch;">Aktiv siden 1991 — den gangen som Gjøvik Sinfonietta.</p>
+      </div>
+      <a href="om-oss.html" class="oi-link-rod" style="align-self:start; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; border-bottom:1px solid #26231F; padding-bottom:5px;">Mer om oss →</a>
+    </div>
+    <!-- BILDE: images/atle-sponberg.jpg -->
+    <div data-m="imgcap" class="oi-bilde" style="grid-column:5 / 9; border-right:1px solid rgba(38,35,31,.16); min-height:400px;">
+      <img src="images/atle-sponberg.jpg" alt="Atle Sponberg, kunstnerisk leder" style="min-height:400px; object-position:center 12%;">
+    </div>
+    <div data-mp="1" style="grid-column:9 / 13; padding:64px 56px 64px 36px; display:flex; flex-direction:column; justify-content:center;">
+      <p style="margin:0; font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:#6E675F; font-weight:600;">KUNSTNERISK LEDER</p>
+      <p style="margin:18px 0 0; font-weight:200; font-size:clamp(34px, 3.8vw, 54px); line-height:1.02; letter-spacing:-.04em;">Atle<br>Sponberg</p>
+      <div style="margin-top:30px; height:53px; background:repeating-linear-gradient(to bottom, rgba(38,35,31,.2) 0 1px, transparent 1px 13px);"></div>
+    </div>
+  </section>
+
+  <!-- ===== ORKESTERVENNER ===== -->
+  <section id="venner" data-reveal="" data-m="pad" data-ms="1" style="padding:84px 56px 88px 40px; display:grid; grid-template-columns:repeat(12, 1fr);">
+    <div style="grid-column:1 / 7; padding-right:56px;" data-mn="1">
+      <p style="margin:0 0 22px; font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:#6E675F; font-weight:600;">Orkestervenner</p>
+      <h2 style="margin:0; font-weight:200; font-size:clamp(32px, 4.4vw, 64px); line-height:1; letter-spacing:-.045em; max-width:14ch;">Bli med i fellesskapet</h2>
+      <p style="margin:26px 0 0; max-width:42ch; font-size:17px; line-height:1.75; color:#3B3733;">Alle er velkomne. Du bestemmer selv hvor mye du bidrar.</p>
+    </div>
+    <div style="grid-column:7 / 13; display:flex; flex-direction:column; justify-content:flex-end;">
+      <div style="display:grid; grid-template-columns:56px 1fr; gap:20px; border-top:1px solid rgba(38,35,31,.22); padding:20px 0; align-items:baseline;">
+        <span style="font-weight:300; font-size:22px; color:#8A6A2E; line-height:1;">01</span>
+        <span style="font-size:17px; line-height:1.5; color:#26231F;">Rabatterte billetter</span>
+      </div>
+      <div style="display:grid; grid-template-columns:56px 1fr; gap:20px; border-top:1px solid rgba(38,35,31,.22); padding:20px 0; align-items:baseline;">
+        <span style="font-weight:300; font-size:22px; color:#8A6A2E; line-height:1;">02</span>
+        <span style="font-size:17px; line-height:1.5; color:#26231F;">Del av fellesskapet rundt orkesteret</span>
+      </div>
+      <div style="display:grid; grid-template-columns:56px 1fr; gap:20px; border-top:1px solid rgba(38,35,31,.22); padding:20px 0; align-items:baseline;">
+        <span style="font-weight:300; font-size:22px; color:#8A6A2E; line-height:1;">03</span>
+        <span style="font-size:17px; line-height:1.5; color:#26231F;">Bidra med praktisk hjelp om du vil</span>
+      </div>
+      <div style="border-top:1px solid rgba(38,35,31,.22); padding-top:28px;">
+        <a href="bli-orkestervenn.html" class="oi-knapp" style="display:inline-block; background:#E9333A; color:#FFFFFF; padding:16px 26px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600;">Bli orkestervenn →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SPONSORER: images/partner-1.png … partner-8.png ===== -->
+  <section id="partnere" data-reveal="" data-m="pad" style="background:#EDEAE4; border-top:1px solid rgba(38,35,31,.22); padding:72px 56px 84px 40px;">
+    <div style="display:flex; align-items:center; gap:20px; margin-bottom:32px;">
+      <p style="margin:0; font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:#6E675F; font-weight:600; white-space:nowrap;">SAMARBEIDSPARTNERE OG SPONSORER</p>
+      <div style="flex:1; height:1px; background:rgba(38,35,31,.22);"></div>
+    </div>
+    <div data-m="grid2" style="display:grid; grid-template-columns:repeat(4, 1fr); border-top:1px solid rgba(38,35,31,.22); border-left:1px solid rgba(38,35,31,.22);">
+      <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-1.png" alt="Logo 1"></div>
+      </div>
+      <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-2.png" alt="Logo 2"></div>
+      </div>
+      <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-3.png" alt="Logo 3"></div>
+      </div>
+      <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-4.png" alt="Logo 4"></div>
+      </div>
+      <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-5.png" alt="Logo 5"></div>
+      </div>
+      <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-6.png" alt="Logo 6"></div>
+      </div>
+      <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-7.png" alt="Logo 7"></div>
+      </div>
+      <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-8.png" alt="Logo 8"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BUNN / KONTAKT ===== -->
+  <footer id="kontakt" data-m="pad" style="background:#26231F; color:#F4F2EE; border-top:1px solid #B08D4F; padding:72px 56px 40px 40px;">
+    <div data-m="stack" style="display:grid; grid-template-columns:repeat(12, 1fr); gap:0; align-items:end; padding-bottom:56px;">
+      <p class="oi-footer-claim" style="grid-column:1 / 8; margin:0; font-weight:200; font-size:clamp(30px, 4.6vw, 74px); line-height:.98; letter-spacing:-.045em;">Vi spiller der <span style="color:#D7B678;">folk bor</span></p>
       <div style="grid-column:9 / 13; display:flex; flex-direction:column; gap:12px; font-size:15px;">
         <a href="program.html" class="oi-link-gull" style="color:#F4F2EE;">Program</a>
         <a href="om-oss.html" class="oi-link-gull" style="color:#F4F2EE;">Om oss</a>
         <a href="bli-orkestervenn.html" class="oi-link-gull" style="color:#F4F2EE;">Bli orkestervenn</a>
-        <a href="index.html#partnere" class="oi-link-gull" style="color:#F4F2EE;">Samarbeidspartnere</a>
+        <a href="#partnere" class="oi-link-gull" style="color:#F4F2EE;">Samarbeidspartnere</a>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(215,182,120,.35); padding:26px 0 30px; display:flex; gap:48px; flex-wrap:wrap; align-items:flex-start;">
+    <div style="border-top:1px solid rgba(215,182,120,.35); padding:26px 0 30px; display:flex; gap:48px; flex-wrap:wrap;">
       <p style="margin:0; font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:#D7B678; font-weight:600;">Kontakt</p>
       <p style="margin:0; font-size:15px; line-height:1.8; color:rgba(244,242,238,.86);">Elisabeth Lie, Daglig leder<br>Tel: +47 930 11 404<br><a href="mailto:elisabeth.lie@orkesterinnlandet.no" class="oi-link-gull" style="color:#F4F2EE;">elisabeth.lie@orkesterinnlandet.no</a></p>
-      <img src="images/oi-logo.png" alt="OI! Orkester Innlandet" style="height:28px; width:auto; display:block; margin-left:auto;">
+    </div>
+    <div style="border-top:1px solid rgba(215,182,120,.35); padding-top:26px; display:flex; align-items:end; justify-content:space-between; gap:32px; flex-wrap:wrap;">
+      <img src="images/oi-logo.png" alt="OI! Orkester Innlandet" style="height:28px; width:auto; display:block;">
+      <p style="margin:0; font-size:13px; color:rgba(244,242,238,.6); line-height:1.7;">post@orkesterinnlandet.no · Gjøvik / Innlandet · orkesterinnlandet.no</p>
     </div>
   </footer>
 </div>
 
 <script>
   (function () {
+    var menu = document.querySelector('.oi-mobile-menu');
+    if (menu) menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', function () { menu.removeAttribute('open'); }); });
     var bar = document.getElementById('oi-progress');
-    if (!bar) return;
     function upd() {
       var h = document.documentElement;
       var max = h.scrollHeight - h.clientHeight;
