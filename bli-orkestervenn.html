@@ -152,22 +152,22 @@
 
     <div data-mn="1" style="grid-column:7 / 13; background:#EDEAE4; border-left:1px solid rgba(38,35,31,.16); padding:48px 44px;">
       <h3 style="margin:0 0 32px; font-weight:300; font-size:30px; line-height:1.15; letter-spacing:-.025em;">Meld deg på</h3>
-      <div style="display:flex; flex-direction:column; gap:24px;">
+      <form action="https://formspree.io/f/mnpqjaww" method="POST" style="display:flex; flex-direction:column; gap:24px;">
         <label style="display:flex; flex-direction:column; gap:9px;">
           <span style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#6E675F; font-weight:600;">Navn</span>
-          <input type="text" placeholder="For- og etternavn" style="border:none; border-bottom:1px solid rgba(38,35,31,.32); background:transparent; padding:10px 0; font-size:17px; color:#26231F; outline:none;">
+          <input type="text" name="navn" required placeholder="For- og etternavn" style="border:none; border-bottom:1px solid rgba(38,35,31,.32); background:transparent; padding:10px 0; font-size:17px; color:#26231F; outline:none;">
         </label>
         <label style="display:flex; flex-direction:column; gap:9px;">
           <span style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#6E675F; font-weight:600;">E-post</span>
-          <input type="email" placeholder="navn@epost.no" style="border:none; border-bottom:1px solid rgba(38,35,31,.32); background:transparent; padding:10px 0; font-size:17px; color:#26231F; outline:none;">
+          <input type="email" name="epost" required placeholder="navn@epost.no" style="border:none; border-bottom:1px solid rgba(38,35,31,.32); background:transparent; padding:10px 0; font-size:17px; color:#26231F; outline:none;">
         </label>
         <label style="display:flex; flex-direction:column; gap:9px;">
           <span style="font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:#6E675F; font-weight:600;">Telefon</span>
-          <input type="tel" placeholder="Valgfritt" style="border:none; border-bottom:1px solid rgba(38,35,31,.32); background:transparent; padding:10px 0; font-size:17px; color:#26231F; outline:none;">
+          <input type="tel" name="telefon" placeholder="Valgfritt" style="border:none; border-bottom:1px solid rgba(38,35,31,.32); background:transparent; padding:10px 0; font-size:17px; color:#26231F; outline:none;">
         </label>
-        <button type="button" class="oi-knapp" style="margin-top:14px; background:#E9333A; color:#FFFFFF; border:none; padding:16px 26px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; cursor:pointer; text-align:left;">Send påmelding →</button>
+        <button type="submit" class="oi-knapp" style="margin-top:14px; background:#E9333A; color:#FFFFFF; border:none; padding:16px 26px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; cursor:pointer; text-align:left;">Send påmelding →</button>
         <p style="margin:0; font-size:13px; line-height:1.65; color:#6E675F;">Vi bruker opplysningene bare til å kontakte deg om orkestervennskapet.</p>
-      </div>
+      </form>
     </div>
   </section>
 
