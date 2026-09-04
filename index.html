@@ -25,9 +25,20 @@
   .oi-bilde { background:#E2DDD6; display:block; overflow:hidden; }
   .oi-bilde img { width:100%; height:100%; object-fit:cover; display:block; }
   .oi-bilde img.contain { object-fit:contain; }
+  .oi-partner-logo { transform-origin:center; }
+  .oi-partner-logo-1 { transform:scale(1.45); }
+  .oi-partner-logo-2 { transform:scale(1.28); }
+  .oi-partner-logo-3 { transform:scale(.94); }
+  .oi-partner-logo-4 { transform:scale(.94); }
+  .oi-partner-logo-5 { transform:scale(.78); }
+  .oi-partner-logo-6 { transform:scale(1); }
+  .oi-partner-logo-7 { transform:scale(1.6); }
+  .oi-partner-logo-8 { transform:scale(1.22); }
   .oi-mobile-menu { display:none; }
   .oi-mobile-menu summary { list-style:none; }
   .oi-mobile-menu summary::-webkit-details-marker { display:none; }
+  .oi-footer-contacts { display:grid; grid-template-columns:110px repeat(2, minmax(0, 1fr)); gap:44px; align-items:start; }
+  .oi-footer-contact + .oi-footer-contact { border-left:1px solid rgba(215,182,120,.25); padding-left:44px; }
   @media (max-width:860px){
     [data-m="shell"]{ padding-left:0 !important; }
     [data-m="rail"]{ display:none !important; }
@@ -63,7 +74,17 @@
     [data-m="concert-info"]{ padding-right:0 !important; margin-top:18px; }
     [data-m="concert-image"]{ display:block !important; margin-top:24px; }
     [data-m="concert-image"] .oi-bilde{ height:clamp(190px, 62vw, 270px) !important; }
+    .oi-partner-logo-1{ transform:scale(1.12); }
+    .oi-partner-logo-2{ transform:scale(1.18); }
+    .oi-partner-logo-3{ transform:scale(1.08); }
+    .oi-partner-logo-4{ transform:scale(.92); }
+    .oi-partner-logo-5{ transform:scale(.78); }
+    .oi-partner-logo-6{ transform:scale(.96); }
+    .oi-partner-logo-7{ transform:scale(1.32); }
+    .oi-partner-logo-8{ transform:scale(1.1); }
     .oi-footer-claim{ margin-bottom:44px !important; padding-top:10px; line-height:1.08 !important; }
+    .oi-footer-contacts{ grid-template-columns:1fr !important; gap:22px !important; }
+    .oi-footer-contact + .oi-footer-contact{ border-left:none; border-top:1px solid rgba(215,182,120,.25); padding-left:0; padding-top:22px; }
   }
   @media (max-width:380px){
     header[data-m="pad"]{ gap:14px !important; }
@@ -294,28 +315,28 @@
     </div>
     <div data-m="grid2" style="display:grid; grid-template-columns:repeat(4, 1fr); border-top:1px solid rgba(38,35,31,.22); border-left:1px solid rgba(38,35,31,.22);">
       <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
-        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-1.png" alt="Logo 1"></div>
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain oi-partner-logo oi-partner-logo-1" src="images/partner-1.png" alt="Gjøvik kommune"></div>
       </div>
       <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
-        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-2.png" alt="Logo 2"></div>
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain oi-partner-logo oi-partner-logo-2" src="images/partner-2.png" alt="Sparebankstiftelsen DNB"></div>
       </div>
       <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
-        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-3.png" alt="Logo 3"></div>
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain oi-partner-logo oi-partner-logo-3" src="images/partner-3.png" alt="Kulturrådet"></div>
       </div>
       <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
-        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-4.png" alt="Logo 4"></div>
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain oi-partner-logo oi-partner-logo-4" src="images/partner-4.png" alt="Innlandet fylkeskommune"></div>
       </div>
       <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
-        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-5.png" alt="Logo 5"></div>
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain oi-partner-logo oi-partner-logo-5" src="images/partner-5.png" alt="Oppland Arbeiderblad"></div>
       </div>
       <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
-        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-6.png" alt="Logo 6"></div>
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain oi-partner-logo oi-partner-logo-6" src="images/partner-6.png" alt="Pizzabakeren"></div>
       </div>
       <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
-        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-7.png" alt="Logo 7"></div>
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain oi-partner-logo oi-partner-logo-7" src="images/partner-7.png" alt="Hunton"></div>
       </div>
       <div style="border-right:1px solid rgba(38,35,31,.22); border-bottom:1px solid rgba(38,35,31,.22); background:#F4F2EE; padding:28px 30px; display:flex; align-items:center; min-height:136px;">
-        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain" src="images/partner-8.png" alt="Logo 8"></div>
+        <div class="oi-bilde" style="width:100%; height:76px; background:transparent;"><img class="contain oi-partner-logo oi-partner-logo-8" src="images/partner-8.png" alt="Utstillingsplassen"></div>
       </div>
     </div>
   </section>
@@ -331,9 +352,10 @@
         <a href="#partnere" class="oi-link-gull" style="color:#F4F2EE;">Samarbeidspartnere</a>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(215,182,120,.35); padding:26px 0 30px; display:flex; gap:48px; flex-wrap:wrap;">
+    <div class="oi-footer-contacts" style="border-top:1px solid rgba(215,182,120,.35); padding:26px 0 30px;">
       <p style="margin:0; font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:#D7B678; font-weight:600;">Kontakt</p>
-      <p style="margin:0; font-size:15px; line-height:1.8; color:rgba(244,242,238,.86);">Elisabeth Lie, Daglig leder<br>Tel: +47 930 11 404<br><a href="mailto:elisabeth.lie@orkesterinnlandet.no" class="oi-link-gull" style="color:#F4F2EE;">elisabeth.lie@orkesterinnlandet.no</a></p>
+      <p class="oi-footer-contact" style="margin:0; font-size:15px; line-height:1.8; color:rgba(244,242,238,.86);"><strong style="color:#F4F2EE; font-weight:500;">Elisabeth Lie, daglig leder</strong><br>Tel: <a href="tel:+4793011404" class="oi-link-gull" style="color:#F4F2EE;">+47 930 11 404</a><br><a href="mailto:elisabeth.lie@orkesterinnlandet.no" class="oi-link-gull" style="color:#F4F2EE; overflow-wrap:anywhere;">elisabeth.lie@orkesterinnlandet.no</a></p>
+      <p class="oi-footer-contact" style="margin:0; font-size:15px; line-height:1.8; color:rgba(244,242,238,.86);"><strong style="color:#F4F2EE; font-weight:500;">Kristine Johnsgaard, styreleder</strong><br>Tel: <a href="tel:+4799512889" class="oi-link-gull" style="color:#F4F2EE;">+47 995 12 889</a><br><a href="mailto:kristine.johnsgaard@orkesterinnlandet.no" class="oi-link-gull" style="color:#F4F2EE; overflow-wrap:anywhere;">kristine.johnsgaard@orkesterinnlandet.no</a></p>
     </div>
     <div style="border-top:1px solid rgba(215,182,120,.35); padding-top:26px; display:flex; align-items:end; justify-content:space-between; gap:32px; flex-wrap:wrap;">
       <img src="images/oi-logo.png" alt="OI! Orkester Innlandet" style="height:28px; width:auto; display:block;">
