@@ -3,9 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Om oss — Orkester Innlandet</title>
+<title>Om Orkester Innlandet | Profesjonelt orkester</title>
+<meta name="description" content="Bli kjent med Orkester Innlandet, et profesjonelt strykeensemble som spiller der folk bor. Les om orkesteret, kunstnerisk ledelse og organisasjonen.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://orkesterinnlandet.no/om-oss">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:site_name" content="Orkester Innlandet">
+<meta property="og:title" content="Om Orkester Innlandet | Profesjonelt orkester">
+<meta property="og:description" content="Møt orkesteret, den kunstneriske ledelsen og menneskene som arbeider for levende musikk i hele Innlandet.">
+<meta property="og:url" content="https://orkesterinnlandet.no/om-oss">
+<meta property="og:image" content="https://orkesterinnlandet.no/images/orkester-hero.jpg">
+<meta property="og:image:alt" content="Musikerne i Orkester Innlandet">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Om Orkester Innlandet | Profesjonelt orkester">
+<meta name="twitter:description" content="Møt orkesteret og menneskene som arbeider for levende musikk i hele Innlandet.">
+<meta name="twitter:image" content="https://orkesterinnlandet.no/images/orkester-hero.jpg">
+<meta name="theme-color" content="#F4F2EE">
+<link rel="icon" href="images/oi-logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700&amp;display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "Om Orkester Innlandet",
+  "url": "https://orkesterinnlandet.no/om-oss",
+  "description": "Om Orkester Innlandet, den kunstneriske ledelsen og organisasjonen.",
+  "inLanguage": "nb-NO",
+  "about": {
+    "@type": "Organization",
+    "name": "Orkester Innlandet",
+    "url": "https://orkesterinnlandet.no/",
+    "logo": "https://orkesterinnlandet.no/images/oi-logo.png"
+  }
+}
+</script>
 <style>
   html, body { margin:0; padding:0; background:#F4F2EE; }
   * { box-sizing:border-box; }
@@ -30,6 +63,8 @@
   .oi-footer-contacts { display:grid; grid-template-columns:110px repeat(2, minmax(0, 1fr)); gap:44px; align-items:start; }
   .oi-footer-contact + .oi-footer-contact { border-left:1px solid rgba(215,182,120,.25); padding-left:44px; }
   @media (max-width:860px){
+    [data-m="shell"]{ padding-left:0 !important; }
+    [data-m="rail"]{ display:none !important; }
     [data-m="stack"]{ display:block !important; }
     [data-m="stack"] > *{ grid-column:auto !important; border-left:none !important; border-right:none !important; }
     [data-m="pad"]{ padding-left:20px !important; padding-right:20px !important; }
@@ -61,13 +96,22 @@
 </style>
 </head>
 <body>
-<div style="background:#F4F2EE; color:#26231F; font-family:Archivo, sans-serif; font-weight:400; overflow-x:hidden; min-height:100vh; -webkit-font-smoothing:antialiased;">
+<div data-m="shell" style="background:#F4F2EE; color:#26231F; font-family:Archivo, sans-serif; font-weight:400; overflow-x:hidden; min-height:100vh; -webkit-font-smoothing:antialiased; padding-left:58px;">
 
-  <header data-m="pad" style="display:flex; align-items:center; justify-content:space-between; gap:32px; padding:20px 48px; border-bottom:1px solid rgba(38,35,31,.16); position:sticky; top:0; background:rgba(244,242,238,.92); backdrop-filter:blur(8px); z-index:20;">
+  <div data-m="rail" style="position:fixed; left:-1px; top:0; width:59px; border-right:1px solid rgba(38,35,31,.16); background:#F4F2EE; z-index:30; display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:22px 0 26px; height:100vh; overflow:hidden;">
+    <span style="width:9px; height:9px; background:#E9333A; border-radius:50%; flex:none; margin-bottom:38px;"></span>
+    <span style="writing-mode:vertical-rl; font-size:10px; letter-spacing:.34em; text-transform:uppercase; color:#6E675F; font-weight:600; white-space:nowrap;">Orkester Innlandet · 1991–2026</span>
+    <div style="width:1px; flex:1; min-height:40px; margin:26px 0; background:rgba(38,35,31,.16); position:relative;">
+      <div id="oi-progress" style="position:absolute; left:-1px; top:0; width:3px; background:#B08D4F; height:0%;"></div>
+    </div>
+    <span style="writing-mode:vertical-rl; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:#8A6A2E; font-weight:600; flex:none;">Om oss</span>
+  </div>
+
+  <header data-m="pad" style="display:flex; align-items:center; justify-content:space-between; gap:32px; padding:20px 56px 20px 40px; border-bottom:1px solid rgba(38,35,31,.16); position:sticky; top:0; background:rgba(244,242,238,.94); backdrop-filter:blur(10px); z-index:20;">
     <a href="index.html" aria-label="OI! Orkester Innlandet" style="display:block; line-height:0;">
-      <img src="images/oi-logo.png" alt="OI! Orkester Innlandet" style="height:34px; width:auto; display:block;">
+      <img src="images/oi-logo.png" alt="OI! Orkester Innlandet" width="980" height="559" style="height:32px; width:auto; display:block;">
     </a>
-    <nav data-m="nav" style="display:flex; gap:36px; font-size:14px; font-weight:500; letter-spacing:.01em;">
+    <nav data-m="nav" style="display:flex; gap:38px; font-size:13px; font-weight:500; letter-spacing:.06em; text-transform:uppercase;">
       <a href="program.html">Program</a>
       <a href="om-oss.html" style="color:#E9333A;">Om oss</a>
       <a href="bli-orkestervenn.html">Bli orkestervenn</a>
@@ -96,7 +140,7 @@
 
   <!-- TOPPBILDE: images/orkester-hero.jpg -->
   <div class="oi-bilde" style="height:clamp(320px, 36vw, 540px);">
-    <img src="images/orkester-hero.jpg" alt="Musikerne i Orkester Innlandet" style="object-position:center 82%;">
+    <img src="images/orkester-hero.jpg" alt="Musikerne i Orkester Innlandet" width="4032" height="2268" fetchpriority="high" style="object-position:center 82%;">
   </div>
 
   <section data-reveal="" data-m="pad" style="padding:84px 48px; display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:64px;">
@@ -112,7 +156,7 @@
   <section data-reveal="" data-m="grid1" style="background:#EDEAE4; display:grid; grid-template-columns:minmax(280px,1fr) minmax(0,1.2fr); align-items:stretch; border-top:1px solid rgba(38,35,31,.16); border-bottom:1px solid rgba(38,35,31,.16);">
     <!-- BILDE: images/atle-sponberg.jpg -->
     <div class="oi-bilde" style="min-height:420px; border-right:1px solid rgba(38,35,31,.16);">
-      <img src="images/atle-sponberg.jpg" alt="Atle Sponberg, kunstnerisk leder" style="min-height:420px; object-position:center 12%;">
+      <img src="images/atle-sponberg.jpg" alt="Atle Sponberg, kunstnerisk leder" width="924" height="1240" loading="lazy" style="min-height:420px; object-position:center 12%;">
     </div>
     <div data-m="pad" style="padding:68px 48px; display:flex; flex-direction:column; justify-content:center;">
       <p style="margin:0 0 20px; font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#6E675F; font-weight:600;">Kunstnerisk leder</p>
@@ -168,15 +212,15 @@
     </div>
   </section>
 
-  <!-- ===== GALLERI: images/om-galleri-1.jpg … 3.jpg ===== -->
+  <!-- Legg bildefilene i images/ med nøyaktig disse filnavnene. -->
   <section data-reveal="" data-m="pad" style="padding:76px 48px 88px;">
     <div style="display:flex; align-items:baseline; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:30px;">
       <p style="margin:0; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:#6E675F; font-weight:600;">Bilder fra orkesteret</p>
     </div>
     <div data-m="grid1" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:rgba(38,35,31,.16); border:1px solid rgba(38,35,31,.16);">
-      <div class="oi-bilde" style="height:260px;"><img src="images/om-galleri-1.jpg" alt="Bilde fra konsert"></div>
-      <div class="oi-bilde" style="height:260px;"><img src="images/om-galleri-2.jpg" alt="Bilde fra prøve"></div>
-      <div class="oi-bilde" style="height:260px;"><img src="images/om-galleri-3.jpg" alt="Bilde av orkesteret"></div>
+      <div class="oi-bilde" style="height:260px;"><img src="images/om-galleri-1.webp" alt="Bilde fra en konsert med Orkester Innlandet" width="1000" height="750" loading="lazy"></div>
+      <div class="oi-bilde" style="height:260px;"><img src="images/om-galleri-2.webp" alt="Orkester Innlandet under en prøve" width="1500" height="1000" loading="lazy"></div>
+      <div class="oi-bilde" style="height:260px;"><img src="images/om-galleri-3.webp" alt="Musikere i Orkester Innlandet" width="1500" height="1000" loading="lazy"></div>
     </div>
   </section>
 
@@ -201,7 +245,7 @@
       <p class="oi-footer-contact" style="margin:0; font-size:15px; line-height:1.8; color:rgba(244,242,238,.86);"><strong style="color:#F4F2EE; font-weight:500;">Kristine Johnsgaard, styreleder</strong><br>Tel: <a href="tel:+4799512889" class="oi-link-gull" style="color:#F4F2EE;">+47 995 12 889</a><br><a href="mailto:kristine.johnsgaard@orkesterinnlandet.no" class="oi-link-gull" style="color:#F4F2EE; overflow-wrap:anywhere;">kristine.johnsgaard@orkesterinnlandet.no</a></p>
     </div>
     <div style="border-top:1px solid rgba(215,182,120,.35); padding-top:26px; display:flex; align-items:end; justify-content:space-between; gap:32px; flex-wrap:wrap;">
-      <img src="images/oi-logo.png" alt="OI! Orkester Innlandet" style="height:28px; width:auto; display:block;">
+      <img src="images/oi-logo.png" alt="OI! Orkester Innlandet" width="980" height="559" loading="lazy" style="height:28px; width:auto; display:block;">
       <p style="margin:0; font-size:13px; color:rgba(244,242,238,.6); line-height:1.7;">post@orkesterinnlandet.no · Gjøvik / Innlandet · orkesterinnlandet.no</p>
     </div>
   </footer>
