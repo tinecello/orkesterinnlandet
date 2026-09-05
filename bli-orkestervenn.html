@@ -3,9 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bli orkestervenn — Orkester Innlandet</title>
+<title>Bli orkestervenn | Støtt Orkester Innlandet</title>
+<meta name="description" content="Bli orkestervenn og støtt et profesjonelt orkester som spiller i hele Innlandet. Få billettrabatter, invitasjoner og mulighet til å bidra.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://orkesterinnlandet.no/bli-orkestervenn">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:site_name" content="Orkester Innlandet">
+<meta property="og:title" content="Bli orkestervenn | Støtt Orkester Innlandet">
+<meta property="og:description" content="Få billettrabatter, invitasjoner og mulighet til å støtte et profesjonelt orkester som spiller i hele Innlandet.">
+<meta property="og:url" content="https://orkesterinnlandet.no/bli-orkestervenn">
+<meta property="og:image" content="https://orkesterinnlandet.no/images/orkester-hero.jpg">
+<meta property="og:image:alt" content="Orkester Innlandet på scenen">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bli orkestervenn | Støtt Orkester Innlandet">
+<meta name="twitter:description" content="Få billettrabatter, invitasjoner og mulighet til å støtte Orkester Innlandet.">
+<meta name="twitter:image" content="https://orkesterinnlandet.no/images/orkester-hero.jpg">
+<meta name="theme-color" content="#F4F2EE">
+<link rel="icon" href="images/oi-logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700&amp;display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Bli orkestervenn",
+  "url": "https://orkesterinnlandet.no/bli-orkestervenn",
+  "description": "Bli orkestervenn og støtt et profesjonelt orkester som spiller i hele Innlandet.",
+  "inLanguage": "nb-NO",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Orkester Innlandet",
+    "url": "https://orkesterinnlandet.no/"
+  }
+}
+</script>
 <style>
   html, body { margin:0; padding:0; background:#F4F2EE; }
   * { box-sizing:border-box; }
@@ -234,10 +266,6 @@
         event.preventDefault();
         if (!friendForm.checkValidity()) {
           friendForm.reportValidity();
-          return;
-        }
-        if (friendForm.action.indexOf('SETT-INN-FORMSPREE-ID') !== -1) {
-          showFormStatus('Skjemaet er klart, men må kobles til Formspree før det kan sendes.', 'error');
           return;
         }
         sendButton.disabled = true;
