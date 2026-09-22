@@ -172,6 +172,22 @@
     .oi-mobile-menu summary{ padding:9px 10px; }
     .oi-social-links{ grid-template-columns:1fr; }
   }
+
+  .oi-footer-share-inline { margin-top:2px; }
+  .oi-friend-button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:12px 18px; border:1px solid #D7B678; background:transparent; color:#D7B678; font:500 14px Archivo,sans-serif; cursor:pointer; }
+  .oi-friend-button[hidden] { display:none; }
+  .oi-friend-button:hover { background:#D7B678; color:#26231F; }
+  .oi-share-fallback { margin-top:16px; }
+  .oi-share-fallback label { display:block; margin-bottom:8px; font-size:14px; line-height:1.5; }
+  .oi-share-fallback input { width:100%; max-width:560px; padding:12px; border:1px solid #D7B678; background:#F4F2EE; color:#26231F; font:14px Archivo,sans-serif; }
+  .oi-share-status { margin:12px 0 0; font-size:14px; line-height:1.5; }
+  .oi-share-status:empty { display:none; }
+  .oi-share-light { color:#26231F; border-color:rgba(38,35,31,.35); }
+  .oi-share-light:hover { color:#F4F2EE; background:#26231F; border-color:#26231F; }
+  .oi-footer-share-inline .oi-friend-button { gap:8px; max-width:100%; padding:8px 0; border:0; font:400 13px/1.5 Archivo,sans-serif; text-align:left; }
+  .oi-footer-share-inline .oi-friend-button:hover { background:transparent; color:#F4F2EE; }
+  .oi-footer-share-inline .oi-friend-button:hover span { text-decoration:underline; text-underline-offset:4px; }
+  .oi-share-icon { width:16px; height:16px; flex:none; }
 </style>
 </head>
 <body>
@@ -385,6 +401,14 @@
       </div>
       <div style="border-top:1px solid rgba(38,35,31,.22); padding-top:28px;">
         <a href="bli-orkestervenn.html" class="oi-knapp" style="display:inline-block; background:#E9333A; color:#FFFFFF; padding:16px 26px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600;">Bli orkestervenn →</a>
+        <div style="margin-top:12px;">
+          <button class="oi-friend-button oi-share-light" id="oi-share-main" type="button" aria-label="Del Bli orkestervenn" hidden>Del</button>
+          <div class="oi-share-fallback" id="oi-main-fallback" hidden>
+            <label for="oi-main-url">Kopier lenken og send den til en venn:</label>
+            <input id="oi-main-url" type="text" readonly value="https://orkesterinnlandet.no/bli-orkestervenn.html">
+          </div>
+          <p class="oi-share-status" id="oi-main-status" role="status" aria-live="polite"></p>
+        </div>
       </div>
     </div>
   </section>
@@ -430,7 +454,17 @@
       <div style="grid-column:9 / 13; display:flex; flex-direction:column; gap:12px; font-size:15px;">
         <a href="program.html" class="oi-link-gull" style="color:#F4F2EE;">Program</a>
         <a href="om-oss.html" class="oi-link-gull" style="color:#F4F2EE;">Om oss</a>
+        <div>
         <a href="bli-orkestervenn.html" class="oi-link-gull" style="color:#F4F2EE;">Bli orkestervenn</a>
+    <div class="oi-footer-share-inline">
+      <button class="oi-friend-button" id="oi-share-friend" type="button" hidden><svg class="oi-share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></svg><span>Del lenken til «Bli orkestervenn»</span></button>
+      <div class="oi-share-fallback" id="oi-share-fallback" hidden>
+        <label for="oi-share-url">Kopier lenken og send den til en venn:</label>
+        <input id="oi-share-url" type="text" readonly value="https://orkesterinnlandet.no/bli-orkestervenn.html">
+      </div>
+      <p class="oi-share-status" id="oi-share-status" role="status" aria-live="polite"></p>
+    </div>
+        </div>
         <a href="#partnere" class="oi-link-gull" style="color:#F4F2EE;">Samarbeidspartnere</a>
       </div>
     </div>
@@ -476,6 +510,45 @@
     }
     window.addEventListener('scroll', upd, { passive: true });
     upd();
+  })();
+</script>
+
+<script>
+  (function () {
+    function setupShare(buttonId, prefix) {
+    var button = document.getElementById(buttonId);
+    var status = document.getElementById(prefix + '-status');
+    var fallback = document.getElementById(prefix + '-fallback');
+    var input = document.getElementById(prefix + '-url');
+    var shareData = {
+      title: 'Bli orkestervenn – Orkester Innlandet',
+      text: 'Musikk er best med venner! Bli en del av fellesskapet rundt Orkester Innlandet.',
+      url: input.value
+    };
+    button.hidden = false;
+    button.addEventListener('click', async function () {
+      status.textContent = '';
+      fallback.hidden = true;
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+          return;
+        } catch (error) {
+          if (error.name === 'AbortError') return;
+        }
+      }
+      try {
+        await navigator.clipboard.writeText(shareData.url);
+        status.textContent = 'Lenken er kopiert! Lim den inn i en melding til en venn.';
+      } catch (error) {
+        fallback.hidden = false;
+        input.focus();
+        input.select();
+      }
+    });
+    }
+    setupShare('oi-share-friend', 'oi-share');
+    setupShare('oi-share-main', 'oi-main');
   })();
 </script>
 </body>
