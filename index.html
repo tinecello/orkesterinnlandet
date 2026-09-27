@@ -249,9 +249,20 @@
   </section>
 
   <!-- ===== TOPPBILDE: images/orkester-hero.jpg ===== -->
-  <div class="oi-bilde" style="height:clamp(400px, 46vw, 700px); border-top:1px solid rgba(38,35,31,.22); border-bottom:1px solid #B08D4F;">
-    <img src="images/orkester-hero.jpg" alt="Musikerne i Orkester Innlandet" width="4032" height="2268" fetchpriority="high" style="object-position:center 82%;">
+  <div class="oi-bilde oi-hero-video" style="height:clamp(400px, 46vw, 700px); border-top:1px solid rgba(38,35,31,.22); border-bottom:1px solid #B08D4F; background:#14110e;">
+    <video autoplay muted loop playsinline preload="auto" poster="images/hero-desktop-poster.jpg" aria-label="Musikerne i Orkester Innlandet og høstfarger fra Innlandet" data-desktop="images/hero-desktop.mp4" data-mobil="images/hero-mobil.mp4" data-poster-mobil="images/hero-mobil-poster.jpg" style="width:100%; height:100%; object-fit:cover; display:block;"></video>
+    <noscript><img src="images/orkester-hero.jpg" alt="Musikerne i Orkester Innlandet" width="4032" height="2268" style="object-position:center 82%;"></noscript>
   </div>
+  <script>
+    (function () {
+      var v = document.querySelector('.oi-hero-video video'); if (!v) return;
+      var mob = window.matchMedia('(max-width:860px)').matches;
+      if (mob) v.poster = v.dataset.posterMobil;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); return; }
+      v.src = mob ? v.dataset.mobil : v.dataset.desktop;
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+    })();
+  </script>
 
   <!-- ===== 35 ÅR ===== -->
   <section style="background:#26231F; color:#F4F2EE; overflow:hidden;">
